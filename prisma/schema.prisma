@@ -3,7 +3,7 @@
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:2021@localhost:5432/test2?schema=public"  
+  url      = env("DATABASE_URL") 
 
 }
 
