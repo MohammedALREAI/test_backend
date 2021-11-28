@@ -51,12 +51,7 @@ model account {
 
 model RefreshToken {
   token        String    @id @db.Text
-  user         account   @relation(f
-   
-    
-    
-      
-      ields: [user_id], references: [id])
+  user         account   @relation(fields: [user_id], references: [id])
   user_id      Int
   created_date DateTime  @default(now()) @db.Timestamptz
   expires      DateTime? @db.Timestamptz
