@@ -1,10 +1,10 @@
 {
-  "name": "geniusparkle-backend",
+  "name": "guideline-backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "primsaAll":"",
+    "primsaAll": "",
     "db:dev": "yarn prisma generate dev --schema",
     "build": "prisma generate",
     "dev": "nodemon server.js",
@@ -13,7 +13,6 @@
   "prisma": {
     "schema": "prisma/schema.prisma"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -34,6 +33,7 @@
     "sharp": "^0.29.1"
   },
   "devDependencies": {
+    "@cloudflare/wrangler": "^1.19.5",
     "nodemon": "^2.0.12",
     "prisma": "^3.0.2"
   },

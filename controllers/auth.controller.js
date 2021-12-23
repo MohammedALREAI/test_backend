@@ -34,7 +34,6 @@ const signup = async (request, response) => {
             error: error.join(', '),
         })
     }
-    console.log("test me  sendMail");
 
     const account = await prisma.account.findUnique({
 		where: { email: body.email }
@@ -61,14 +60,12 @@ const signup = async (request, response) => {
             password: hashPass
         },
     })
-    console.log("test me  sendMail 22222");
 
     const host = `${request.protocol}://${request.get('host')}/`
     const emailTemp = path.join(request.app.get('emailsViews'), 'confirm-email.html')
     const urlVerify = new URL(host)
     urlVerify.pathname = '/api/mail/verify'
     urlVerify.searchParams.set('token', tokenVerify)
-    console.log("test me  sendMail 33333");
 
     const content = renderTemplate(emailTemp, { urlVerify: urlVerify.href })
     const mailOptions = {
@@ -80,21 +77,16 @@ const signup = async (request, response) => {
     }
     
 
-    console.log("test me  sendMail 44444");
 
     transporter.sendMail(mailOptions,function(error,response){
       if(error){
-        console.log(error);
       } else {
           // logger.s(`it  was  success  to  send  the  mail  for  user sendMail ${response.message}`)
 
-          console.log("Message sent: " + response.message);
-          console.log("test me  sendMail 555555");
 
         }
       transporter.close();
   })
-  console.log("test me  sendMail 666666");
 
 
     
